@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>FlaskTest</title>
+</head>
+
+<body>
+	<h2>Our Anime Recommendation Engine</h2>
+	<h4>By Jason and Pramukh</h4>
+	<p>We recommend animes based on the input you give in. In the box below, put in tuples that refer to animes and our engine will give predictions.</p>
+
+	<form action = "http://localhost:5000/result" method = "POST">
+		<p>Enter Anime_ID List <input type = "text" name = "Anime_ID List" /></p>
+		<p>Enter Anime Rating List <input type = "text" name = "Anime Rating List" /></p>
+		<p><input type = "submit" value = "submit" /></p>
+	</form>
+
+
+{% block body %}
+
+
+
+{% endblock %}
+
+
+</body>
+
+</html>
