@@ -3,6 +3,7 @@ import model2
 import os, pandas as pd
 from model2 import recommendation_function, tuple_creator, anime_id_list_creator, user_rating_list_creator
 from ast import literal_eval as make_tuple
+from Bing_our_lord_and_savior import Bingify
 app = Flask(__name__)
 path = os.path.join(os.getcwd(), 'anime_data')
 df = pd.read_csv(os.path.join(path, 'anime.csv'))
@@ -35,6 +36,7 @@ def result():
         #anime_tuple = tuple_creator(result_modified, result2_modified)
         result = request.form['anime-list-input']
         anime_tuple = make_tuple(result)
+        
         print(anime_tuple)
         if type(anime_tuple[0]) == int:
             result_int, result2_int = anime_tuple
@@ -44,8 +46,9 @@ def result():
             result, result2 = list(zip(*anime_tuple))
             
         anime_results = recommendation_function(zip(result, result2))
+        anime_images = Bingify(anime_results["data"][0][0], anime_results["data"][1][0], anime_results["data"][2][0])
         
-    return render_template("result.html", result = result, result2 = result2, anime_results=anime_results, anime_tuple = anime_tuple)
+    return render_template("result.html", result = result, result2 = result2, anime_results=anime_results, anime_tuple = anime_tuple, anime_images = anime_images)
 
 
  

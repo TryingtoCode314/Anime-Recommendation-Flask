@@ -33,41 +33,54 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body>
-  <div class="m-4">
-      <table class="table table-bordered">
-          <thead>
-              <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Anime ID</th>
-                  <th>Estimated Rating</th>
-              </tr>
-          </thead>
-          <tbody>
-
-
-              </tr>
-                <td> {{ anime_results["index"][0] }} </td>
-                <td> {{ anime_results["data"][0][0] }} </td>
-                <td> {{ anime_results["data"][0][1] }} </td>
-                <td> {{ anime_results["data"][0][2] }} </td>
-              </tr>
-
-
-              </tr>
-                <td> {{ anime_results["index"][1] }} </td>
-                <td> {{ anime_results["data"][1][0] }} </td>
-                <td> {{ anime_results["data"][1][1] }} </td>
-                <td> {{ anime_results["data"][1][2] }} </td>
-              </tr>
-
-              </tr>
-                <td> {{ anime_results["index"][2] }} </td>
-                <td> {{ anime_results["data"][2][0] }} </td>
-                <td> {{ anime_results["data"][2][1] }} </td>
-                <td> {{ anime_results["data"][2][2] }} </td>
-              </tr>
-          </tbody>
-      </table>
+    <div class="m-4">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Anime ID</th>
+                    <th>Estimated Rating</th>
+                    <th>Anime images</th>
+                </tr>
+            </thead>
+            <tbody>
   
   
+                </tr>
+                  <td> {{ anime_results["index"][0] }} </td>
+                  <td> {{ anime_results["data"][0][0] }} </td>
+                  <td> {{ anime_results["data"][0][1] }} </td>
+                  <td> {{ anime_results["data"][0][2] }} </td>
+                  <td><img src="{{ anime_images[0] }}" height="200"></td>
+                </tr>
+  
+  
+                </tr>
+                  <td> {{ anime_results["index"][1] }} </td>
+                  <td> {{ anime_results["data"][1][0] }} </td>
+                  <td> {{ anime_results["data"][1][1] }} </td>
+                  <td> {{ anime_results["data"][1][2] }} </td>
+                  <td><img src="{{ anime_images[1] }}" height="200"></td>
+                </tr>
+  
+                </tr>
+                  <td> {{ anime_results["index"][2] }} </td>
+                  <td> {{ anime_results["data"][2][0] }} </td>
+                  <td> {{ anime_results["data"][2][1] }} </td>
+                  <td> {{ anime_results["data"][2][2] }} </td>
+                  <td><img src="{{ anime_images[2] }}" height="200"></td>
+                </tr>
+            </tbody>
+        </table>
+  
+  
+  
+    <head>
+      <title>Fullmetal Alchemist: Brotherhood Image</title>
+    </head>
+    <body>
+      <h1>Fullmetal Alchemist: Brotherhood Image</h1>
+      <img src="http://images6.fanpop.com/image/photos/33900000/naruto-anime-naruto-33923256-1920-1080.jpg">
+      </html>
+    
