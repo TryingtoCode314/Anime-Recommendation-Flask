@@ -32,18 +32,19 @@ algo = SVD()
 algo.fit(train)
 
 
-anime_names_list = 19,57,64
-new_user_rating_list = 7,2,3
-your_ratings = list(zip(anime_names_list, new_user_rating_list))
+#anime_names_list = 19,57,64
+#new_user_rating_list = 7,2,3
+#your_ratings = list(zip(anime_names_list, new_user_rating_list))
 
 
-predictions = SVD_Predict(algo, your_ratings)
-df = pd.DataFrame(predictions, columns=['anime_id', 'rating'])
-new_data = pd.merge(df.nlargest(3, 'rating'), anime_rec_2, left_on=['anime_id'], right_on=['anime_id'])
-new_data = new_data[['name', 'anime_id', 'rating']]
-new_data = new_data.to_dict("tight")
-new_data = {k: new_data[k] for k in ('index', 'data')}
+
 def recommendation_function(your_ratings):
+    predictions = SVD_Predict(algo, your_ratings)
+    df = pd.DataFrame(predictions, columns=['anime_id', 'rating'])
+    new_data = pd.merge(df.nlargest(3, 'rating'), anime_rec_2, left_on=['anime_id'], right_on=['anime_id'])
+    new_data = new_data[['name', 'anime_id', 'rating']]
+    new_data = new_data.to_dict("tight")
+    new_data = {k: new_data[k] for k in ('index', 'data')}
     return (new_data)
 
 #print(new_data)
@@ -86,4 +87,4 @@ def user_rating_list_creator(new_user_rating_list):
 
 #print(user_rating_list_creator(new_user_rating_list))
 #print(tuple_creator(anime_names_list, new_user_rating_list))
-print(recommendation_function(your_ratings))
+#print(recommendation_function(your_ratings))

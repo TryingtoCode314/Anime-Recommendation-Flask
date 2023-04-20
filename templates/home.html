@@ -65,22 +65,43 @@
             .form-container {
               text-align: center;
             }
-          </style>
+
+            #anilist {
+            max-height: 300px; /* set the maximum height of the container */
+            overflow-y: auto;  /* add a vertical scrollbar when the content exceeds the height */
+            text-align: right;
+            }
+
+            .anime {
+            display: flex;
+            justify-content: space-between; /* align the anime to the right */
+            margin-bottom: 5px;
+            }
+        </style>
         </head>
         <body>
 
 
             
-            <div class="form-container">
-                <form action="http://localhost:5000/result" method="POST">
-                  <p>Enter Anime_ID List: 
-                    <input type="text" name="Anime_ID List" placeholder = "Ex. (1,10)"/></p>
-                  <p>Enter Anime Rating List: 
-                    <input type="text" name="Anime Rating List" placeholder = "Ex. (7,8)"/></p>
-                  <button type="submit" class = "btn btn-primary" value="submit" >Submit</button>
-                  <br><br>
-                </form>
-            </div>
+            <form id = anime-form class = 'form-container'>
+                <label for="anime">Select an anime:</label>
+                <input type="text" id="anime" list="anime-list">
+                <datalist id="anime-list">
+                  {% for row in df2.itertuples() %}
+                    <option value="{{ row.Name }}" data-id="{{ row.MAL_ID }}" data-index="{{ loop.index0 }}"></option>
+                  {% endfor %}
+                </datalist>
+                <button type="button" id="add-btn">Add</button>
+              </form>
+            
+              <div id="anilist" class = 'form-container'></div>
+            
+              <form id="submit-form" action="{{ url_for('result') }}" method="POST">
+                <input type="hidden" id="anime-list-input" name="anime-list-input">
+                <button type="button" id="submit-btn">Submit</button>
+              </form>
+            
+              <script src="{{ url_for('static', filename='search.js') }}"></script>
 
 
 
